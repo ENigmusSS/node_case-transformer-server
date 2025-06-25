@@ -6,9 +6,9 @@ function createServer() {
     res.setHeader('content-type', 'application/json');
 
     const [url, params] = req.url.split('?');
-    const textForConvertion = url.slice(1);
-    const toCase = new URLSearchParams(params).get('toCase');
     const errors = [];
+    const textForConvertion = url.slice(1);
+    const toCase = params ? new URLSearchParams(params).get('toCase') : null;
 
     if (!textForConvertion) {
       errors.push({
